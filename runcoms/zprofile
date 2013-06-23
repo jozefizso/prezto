@@ -5,3 +5,8 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+# Load ~/.exports
+for file in ~/.{exports}; do
+  [ -r "$file" ] && source "$file"
+done
+unset file

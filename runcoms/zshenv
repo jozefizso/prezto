@@ -6,6 +6,26 @@
 #
 
 #
+# Paths
+#
+
+# preload PATH in Mac OS X
+if [ -x /usr/libexec/path_helper ]; then
+  # we must clear PATH variable (http://www.softec.lu/site/DevelopersCorner/MasteringThePathHelper)
+  PATH=''
+  eval `/usr/libexec/path_helper -s`
+fi
+
+# load paths defined in .paths file
+if [ -f ~/.paths ]; then
+  local userpath=$(cat ~/.paths | tr \\n ':')
+  export PATH="$userpath:$PATH"
+fi
+
+typeset -gU cdpath fpath mailpath path
+
+
+#
 # Browser
 #
 
@@ -17,8 +37,8 @@ fi
 # Editors
 #
 
-export EDITOR='nano'
-export VISUAL='nano'
+export EDITOR='subl -w'
+export VISUAL='subl -w'
 export PAGER='less'
 
 #
@@ -28,23 +48,6 @@ export PAGER='less'
 if [[ -z "$LANG" ]]; then
   export LANG='en_US.UTF-8'
 fi
-
-#
-# Paths
-#
-
-typeset -gU cdpath fpath mailpath path
-
-# Set the the list of directories that cd searches.
-# cdpath=(
-#   $cdpath
-# )
-
-# Set the list of directories that Zsh searches for programs.
-path=(
-  /usr/local/{bin,sbin}
-  $path
-)
 
 #
 # Less

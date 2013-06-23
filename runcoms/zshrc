@@ -12,3 +12,6 @@ fi
 
 # Customize to your needs...
 
+path() {
+  echo $PATH | tr ":" "\n"
+}
