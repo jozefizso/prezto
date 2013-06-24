@@ -57,6 +57,7 @@ alias po='popd'
 alias pu='pushd'
 alias rm="${aliases[rm]:-rm} -i"
 alias type='type -a'
+alias cls=clear
 
 # ls
 if is-callable 'dircolors'; then
