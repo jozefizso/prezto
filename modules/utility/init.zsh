@@ -180,3 +180,12 @@ function psu {
   ps -U "${1:-$USER}" -o 'pid,%cpu,%mem,command' "${(@)argv[2,-1]}"
 }
 
+path() {
+  echo $PATH | tr ":" "\n" #| \
+  #  awk "{ sub(\"/usr\",   \"$FG[green]/usr$FG[none]\"); \
+  #         sub(\"/bin\",   \"$FG[blue]/bin$FG[none]\"); \
+  #         sub(\"/opt\",   \"$FG[cyan]/opt$FG[none]\"); \
+  #         sub(\"/sbin\",  \"$FG[magenta]/sbin$FG[none]\"); \
+  #         sub(\"/local\", \"$FG[yellow]/local$FG[none]\"); \
+  #         print }"
+}
