@@ -104,6 +104,7 @@ alias sl='ls'            # I often screw this up.
 # Mac OS X Everywhere
 if [[ "$OSTYPE" == darwin* ]]; then
   alias o='open'
+  alias oo='open .'
   alias get='curl --continue-at - --location --progress-bar --remote-name --remote-time'
 else
   alias o='xdg-open'
@@ -144,7 +145,7 @@ alias http-serve='python -m SimpleHTTPServer'
 #
 
 # Makes a directory and changes to it.
-function mkdcd {
+function md {
   [[ -n "$1" ]] && mkdir -p "$1" && builtin cd "$1"
 }
 
