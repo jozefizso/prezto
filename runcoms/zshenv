@@ -13,8 +13,11 @@
 
 # preload PATH in Mac OS X
 if [ -x /usr/libexec/path_helper ]; then
-  # we must clear PATH variable (http://www.softec.lu/site/DevelopersCorner/MasteringThePathHelper)
+  # we must clear PATH variable - path_helper alters ${PATH} even if ${PATH} already contains the entries it wants to add. In this case, it moves the entries to the beginning of ${PATH} instead of just leaving it as is.
+  # (http://www.softec.lu/site/DevelopersCorner/MasteringThePathHelper)
+  # we must define empty MANPATH variable so path_helper will process also MANPATH (https://discussions.apple.com/message/10357593#10357593)
   PATH=''
+  export MANPATH=''
   eval `/usr/libexec/path_helper -s`
 fi
 
@@ -24,7 +27,13 @@ if [ -f ~/.paths ]; then
   export PATH="$userpath:$PATH"
 fi
 
-typeset -gU cdpath fpath mailpath path
+# load paths defined in .manpaths file
+if [ -f ~/.manpaths ]; then
+  local usermanpath=$(cat ~/.manpaths | tr \\n ':')
+  export MANPATH="$usermanpath:$MANPATH"
+fi
+
+typeset -gU cdpath fpath mailpath path manpath
 
 
 #
