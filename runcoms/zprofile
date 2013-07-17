@@ -7,8 +7,8 @@
 # Config: jozef@jozef-mbp
 #
 
-# Load ~/.exports
-for file in ~/.{exports}; do
+# Load ~/.exports, ~/.extra
+for file in ~/.{exports,extra}; do
   [ -r "$file" ] && source "$file"
 done
 unset file
