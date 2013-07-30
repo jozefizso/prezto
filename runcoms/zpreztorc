@@ -38,7 +38,8 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'node' \
   'ssh' \
-  'ruby'
+  'ruby' \
+  'yeoman'
 
 #
 # Editor
