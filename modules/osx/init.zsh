@@ -20,6 +20,12 @@ alias cdf='cd "$(pfd)"'
 # Push directory to the current Finder directory.
 alias pushdf='pushd "$(pfd)"'
 
+# Network
+
+# Flush Directory Service cache
+alias flush="dscacheutil -flushcache"
+
+
 #
 # Functions
 #
