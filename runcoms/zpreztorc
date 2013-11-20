@@ -39,7 +39,8 @@ zstyle ':prezto:load' pmodule \
   'nodenv' \
   'ssh' \
   'ruby' \
-  'yeoman'
+  'yeoman' \
+  'osx'
 
 #
 # Editor
