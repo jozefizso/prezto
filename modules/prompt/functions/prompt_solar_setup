@@ -23,7 +23,8 @@ function prompt_solar_pwd {
 
 function prompt_solar_precmd {
   setopt LOCAL_OPTIONS
-  unsetopt XTRACE KSH_ARRAYS
+  unsetopt KSH_ARRAYS
+  # unsetopt XTRACE KSH_ARRAYS
 
   # Format PWD.
   prompt_solar_pwd
@@ -39,7 +40,8 @@ function prompt_solar_precmd {
 
 function prompt_solar_setup {
   setopt LOCAL_OPTIONS
-  unsetopt XTRACE KSH_ARRAYS
+  unsetopt KSH_ARRAYS
+  # unsetopt XTRACE KSH_ARRAYS
   prompt_opts=(cr percent subst)
 
 
