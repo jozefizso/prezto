@@ -276,7 +276,7 @@ function git-info {
     if [[ -n "$indexed_format" ]]; then
       ((
         indexed+=$(
-          git diff-index \
+          command git diff-index \
             --no-ext-diff \
             --name-only \
             --cached \
@@ -296,7 +296,7 @@ function git-info {
     if [[ -n "$unindexed_format" ]]; then
       ((
         unindexed+=$(
-          git diff-files \
+          command git diff-files \
             --no-ext-diff \
             --name-only \
             --ignore-submodules=${ignore_submodules:-none} \
@@ -314,7 +314,7 @@ function git-info {
     if [[ -n "$untracked_format" ]]; then
       ((
         untracked+=$(
-          git ls-files \
+          command git ls-files \
             --other \
             --exclude-standard \
             2> /dev/null \
@@ -329,7 +329,7 @@ function git-info {
     (( dirty = indexed + unindexed + untracked ))
   else
     # Use porcelain status for easy parsing.
-    status_cmd="git status --porcelain --ignore-submodules=${ignore_submodules:-none}"
+    status_cmd="command git status --porcelain --ignore-submodules=${ignore_submodules:-none}"
 
     # Get current status.
     while IFS=$'\n' read line; do
