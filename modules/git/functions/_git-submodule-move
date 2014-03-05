@@ -25,7 +25,7 @@ case "$state" in
     while IFS=$'\n' read submodule; do
       submodules+=("$submodule")
     done < <(
-      git config --file "$(git-root)/.gitmodules" --list \
+      command git config --file "$(git-root)/.gitmodules" --list \
         | grep '.path=' \
         | cut -d= -f2-
     )

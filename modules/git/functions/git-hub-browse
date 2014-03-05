@@ -21,7 +21,7 @@ if (( $remotes[(i)$remote] == $#remotes + 1 )); then
 fi
 
 url=$(
-  git config --get "remote.${remote}.url" \
+  command git config --get "remote.${remote}.url" \
     | sed -En "s/(git|https?)(@|:\/\/)github.com(:|\/)(.+)\/(.+).git/https:\/\/github.com\/\4\/\5/p"
 )
 
