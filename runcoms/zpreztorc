@@ -40,7 +40,8 @@ zstyle ':prezto:load' pmodule \
   'ssh' \
   'ruby' \
   'yeoman' \
-  'osx'
+  'osx' \
+  'k'
 
 #
 # Editor
