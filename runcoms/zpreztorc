@@ -41,7 +41,8 @@ zstyle ':prezto:load' pmodule \
   'ruby' \
   'yeoman' \
   'osx' \
-  'k'
+  'k' \
+  'z'
 
 #
 # Editor
