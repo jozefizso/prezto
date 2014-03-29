@@ -327,6 +327,29 @@ function git-info {
     fi
 
     (( dirty = indexed + unindexed + untracked ))
+
+    if (( dirty == 0 )); then
+      zstyle -s ':prezto:module:git:info:dirty' format 'dirty_format'
+      if [[ -n "$dirty_format" ]]; then
+        # quickest way to get any uncomitted changes in repo (tracked - staged or not)
+        command git diff --quiet --ignore-submodules HEAD 2> /dev/null
+        (( dirty += $? ))
+
+        if (( dirty == 0 )); then
+          # tracked files are not dirty, let's check untracked
+          # quick way to get untracked files
+          ((
+            dirty+=$(
+              command git ls-files \
+                --other \
+                --exclude-standard \
+                2> /dev/null \
+              | wc -l
+            )
+          ))
+        fi
+      fi
+    fi
   else
     # Use porcelain status for easy parsing.
     status_cmd="command git status --porcelain --ignore-submodules=${ignore_submodules:-none}"
