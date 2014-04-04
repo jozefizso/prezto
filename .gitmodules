@@ -10,3 +10,6 @@
 [submodule "modules/k/external"]
 	path = modules/k/external
 	url = https://github.com/supercrabtree/k.git
+[submodule "modules/z/external"]
+	path = modules/z/external
+	url = https://github.com/rupa/z

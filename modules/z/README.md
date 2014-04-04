@@ -9,6 +9,6 @@
 
 Contribute to [z project on GitHub](https://github.com/rupa/z).
 
-k license: Copyright (c) 2009 rupa deadwyler under the WTFPL license
+z license: Copyright (c) 2009 rupa deadwyler under the WTFPL license
 
 Zprezto module license: Copyright (c) 2014 Jozef Izso. MIT License
