@@ -81,7 +81,7 @@ See [LICENSE](LICENSE) file for details.
 
 
 [1]: http://www.zsh.org
-[2]: http://i.imgur.com/O8QYC3S.png?1 "solar theme"
+[2]: http://i.imgur.com/qQepKyU.png?1 "solar theme"
 [3]: http://git-scm.com
 [4]: https://github.com
 [5]: http://gitimmersion.com
