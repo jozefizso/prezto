@@ -36,7 +36,7 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'prompt' \
   'git' \
-  'nodenv' \
+  'vscode' \
   'ssh' \
   'ruby' \
   'yeoman' \
