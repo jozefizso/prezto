@@ -11,7 +11,7 @@ if ! zstyle -t ':prezto:module:syntax-highlighting' color; then
 fi
 
 # Source module files.
-source "${0:h}/external/zsh-syntax-highlighting.zsh"
+source "${0:h}/external/zsh-syntax-highlighting.zsh" || return 1
 
 # Set highlighters.
 zstyle -a ':prezto:module:syntax-highlighting' highlighters 'ZSH_HIGHLIGHT_HIGHLIGHTERS'
@@ -27,3 +27,10 @@ for syntax_highlighting_style in "${(k)syntax_highlighting_styles[@]}"; do
 done
 unset syntax_highlighting_style{s,}
 
+# Set pattern highlighting styles.
+typeset -A syntax_pattern_styles
+zstyle -a ':prezto:module:syntax-highlighting' pattern 'syntax_pattern_styles'
+for syntax_pattern_style in "${(k)syntax_pattern_styles[@]}"; do
+  ZSH_HIGHLIGHT_PATTERNS[$syntax_pattern_style]="$syntax_pattern_styles[$syntax_pattern_style]"
+done
+unset syntax_pattern_style{s,}

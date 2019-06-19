@@ -5,6 +5,8 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+# function git-root {
+
 local root="$(command git rev-parse --show-toplevel 2> /dev/null)"
 
 if [[ -n "$root" ]]; then
@@ -15,3 +17,4 @@ else
   return 1
 fi
 
+# }

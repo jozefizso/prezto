@@ -6,7 +6,9 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-local tmp="$TMPDIR/pacman-disowned-$UID-$$"
+# function pacman-list-disowned {
+
+local tmp="${TMPDIR:-/tmp}/pacman-disowned-$UID-$$"
 local db="$tmp/db"
 local fs="$tmp/fs"
 
@@ -21,3 +23,4 @@ find /bin /etc /lib /sbin /usr \
 
 comm -23 "$fs" "$db"
 
+# }
